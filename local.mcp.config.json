@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "weather": {
+      "command": "node",
+      "args": [
+        "/Users/aldotestino/Developer/weather-mcp/build/index.js"
+      ]
+    }
+  }
+}
