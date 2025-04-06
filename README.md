@@ -15,7 +15,7 @@ Before getting started, make sure the following tools are installed on your syst
 ### 1. Clone the Repository
 
 ```
-git clone <repository-url>
+git clone https://github.com/aldotestino/weather-mcp.git
 cd weather-mcp
 ```
 
