@@ -2,8 +2,6 @@
 
 *Weather MCP* is a modular, MCP-compatible service that delivers real-time weather and geolocation data using the OpenWeather API. Built with the Model Context Protocol (MCP) SDK, it’s designed for seamless integration with AI-native environments like Claude Desktop and Ollama (with Qwen 2.5), enabling context-aware applications to access live weather insights effortlessly.
 
----
-
 ## 🚀 Prerequisites
 
 Before getting started, make sure the following tools are installed on your system:
@@ -11,8 +9,6 @@ Before getting started, make sure the following tools are installed on your syst
 - 📦 [Node.js](https://nodejs.org/)
 - 🔁 [pnpm](https://pnpm.io/)
 - 🛠️ [Go](https://go.dev/) (required for `mcphost` with Ollama + Qwen 2.5)
-
----
 
 ## ⚙️ Setup Instructions
 
@@ -52,8 +48,6 @@ Compile the TypeScript source code:
 pnpm run build
 ```
 
----
-
 ## 🧠 Integration with Claude Desktop
 
 ### 1. Locate Your Configuration File
@@ -92,8 +86,6 @@ Add or modify the `"mcpServers"` section like so:
 ### 3. Restart Claude Desktop
 
 Save the file and restart Claude Desktop for changes to take effect.
-
----
 
 ## 🤖 Integration with Ollama + Qwen 2.5
 
