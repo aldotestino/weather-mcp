@@ -29,16 +29,17 @@ pnpm install
 
 ### 3. 🔐 Add Your OpenWeather API Key
 
-Weather MCP requires a valid [OpenWeather API key](https://openweathermap.org/api). To configure it:
+Weather MCP requires a valid [OpenWeather API key](https://openweathermap.org/api). The API key should be set in the `env` object of your MCP configuration JSON file:
 
-1. Create a `.env` file at the root of the project.
-2. Add the following line:
-
+```json
+{
+  "env": {
+    "OPENWEATHER_API_KEY": "your_api_key_here"
+  }
+}
 ```
-OPENWEATHER_API_KEY=your_api_key_here
-```
 
-> 💡 Tip: Use the provided `.env.example` file as a template.
+> 💡 Tip: Use the provided `mcp.config.example.json` file as a template.
 
 ### 4. Build the Project
 
@@ -75,7 +76,10 @@ Add or modify the `"mcpServers"` section like so:
       "command": "node",
       "args": [
         "/absolute/path/to/weather-mcp/build/index.js"
-      ]
+      ],
+      "env": {
+        "OPENWEATHER_API_KEY": "your_api_key_here"
+      }
     }
   }
 }
@@ -100,5 +104,7 @@ go install github.com/mark3labs/mcphost@latest
 Run the server with your local config:
 
 ```
-mcphost -m ollama:qwen2.5 --config "./local.mcp.config.json"
+mcphost -m ollama:qwen2.5 --config "./mcp.config.json"
 ```
+
+> 💡 Tip: Add the MCP Server configuration to `~/.mcp.json` to omit the `--config` parameter.

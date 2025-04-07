@@ -4,7 +4,10 @@
       "command": "node",
       "args": [
         "/Users/aldotestino/Developer/weather-mcp/build/index.js"
-      ]
+      ],
+      "env": {
+        "OPENWEATHER_API_KEY": "your-openweather-api-key"
+      }
     }
   }
 }

@@ -17,13 +17,15 @@ export class OpenWeatherService {
   }
 
   private async makeRequest(endpoint: string, params: Record<string, any>): Promise<any> {
-    const baseUrl = `${this.apiUrl}/${endpoint}`;
-    const searhParams = new URLSearchParams({
-      ...params,
-      appid: this.apiKey,
+    const searhParams = new URLSearchParams();
+    searhParams.append('appid', this.apiKey);
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined) {
+        searhParams.append(key, value.toString());
+      }
     });
-    const url = `${baseUrl}?${searhParams.toString()}`;
 
+    const url = `${this.apiUrl}/${endpoint}?${searhParams.toString()}`;
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -34,7 +36,7 @@ export class OpenWeatherService {
   };
 
   async getPosition(query: string): Promise<Position> {
-    const data = await this.makeRequest('geo/1.0/direct', { q: query, limit: 1 });
+    const [data] = await this.makeRequest('geo/1.0/direct', { q: query, limit: 1 });
 
     return {
       city: data.name,
